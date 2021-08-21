@@ -5,5 +5,5 @@ from pyrogram.types import Chat, Message, User
 
 @USER.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
 async def pmPermit(client: USER, message: Message):
-  await USER.send_message(message.chat.id,"Hi there, This is a music assistant service .\n\n ❗️ Rules:\n   - No chatting allowed\n   - No spam allowed \n\n 👉 **SEND GROUP INVITE LINK OR USERNAME IF USERBOT CAN'T JOIN YOUR GROUP.**\n\n ⚠️ Disclamer: If you are sending a message here it means admin will see your message and join chat\n    - Don't add this user to secret groups.\n   - Don't Share private info here\n\n")
+  await USER.send_message(message.chat.id,"Hi kya hal chal hai aapke aasa hai aap thik thak hi honge. Mai hu ❦︎𝗗𝗮𝘆𝗻𝗮𝗺𝗶𝗰 𝖝 𝗠𝘂𝘀𝗶𝗰 𝗕𝗼𝘁.\n\n ❗️ Niyam:\n   - Bat chit mat karo plzz\n   - Spam to bilkul nhi \n\n 👉 **Kisi group me agar mai join nhi ho pa rha hu to us grp ka link idhar send kar dena.**\n\n")
   return                        
