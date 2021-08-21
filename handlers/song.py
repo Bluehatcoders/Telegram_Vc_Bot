@@ -31,7 +31,7 @@ def song(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply('🔎 Finding the song...')
+    m = message.reply('Rukja jadu se tere song ko dhudh rha hu (Hue hue)')
     ydl_opts = {"format": "bestaudio/best"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -50,11 +50,11 @@ def song(client, message):
 
     except Exception as e:
         m.edit(
-            "❌ Found Nothing.\n\nTry another keywork or maybe spell it properly."
+            "Abe kaun si duniya ka gana diya hai be youtube devta ke pass bhi nhi mila"
         )
         print(str(e))
         return
-    m.edit("Downloading the song ")
+    m.edit("Jadu mantar mai karu song ka hogya download shuru")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -242,7 +242,7 @@ def time_to_seconds(time):
 async def ytmusic(client,message: Message):
     global is_downloading
     if is_downloading:
-        await message.reply_text("Another download is in progress, try again after sometime.")
+        await message.reply_text("Kitna majduri karwaoge abhi 1 song download kar rha hu bad me aana jao bhago yha se")
         return
 
     urlissed = get_text(message)
@@ -287,7 +287,7 @@ async def ytmusic(client,message: Message):
 
             if duration > 8:
                 await pablo.edit(
-                    f"❌ Videos longer than 8 minute(s) aren't allowed, the provided video is {duration} minute(s)"
+                    f"❌ Dekh bro 8 minute se jyada ki video/song mai play nhi karta ja bhag aur ye song {duration} minute(s) ka hai"
                 )
                 is_downloading = False
                 return
@@ -302,7 +302,7 @@ async def ytmusic(client,message: Message):
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
     capy = f"**Video Name ➠** `{thum}` \n**Requested For :** `{urlissed}` \n**Channel :** `{thums}` \n**Link :** `{mo}`"
-    await client.send_video(message.chat.id, video = open(file_stark, "rb"), duration = int(ytdl_data["duration"]), file_name = str(ytdl_data["title"]), thumb = sedlyf, caption = capy, supports_streaming = True , progress=progress, progress_args=(pablo, c_time, f'`Uploading {urlissed} Song From YouTube Music!`', file_stark))
+    await client.send_video(message.chat.id, video = open(file_stark, "rb"), duration = int(ytdl_data["duration"]), file_name = str(ytdl_data["title"]), thumb = sedlyf, caption = capy, supports_streaming = True , progress=progress, progress_args=(pablo, c_time, f'`Uploading {urlissed} Song From YouTube Music! Khusi manao re `', file_stark))
     await pablo.delete()
     is_downloading = False
     for files in (sedlyf, file_stark):
